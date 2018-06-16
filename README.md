@@ -1,6 +1,8 @@
 # sequence_riddle
-Project 1. What is the missing item?
-Written by Anna Dourgarian
+Project 1. What is the missing item?<br>
+11-second animation solving the riddle 16,06,68,88,?,98<br>
+<br>
+Written by Anna Dourgarian<br>
 6.16.2018
 
 ## Getting Started
