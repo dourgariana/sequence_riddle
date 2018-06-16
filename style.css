@@ -1,0 +1,35 @@
+ body { font-size: 200%; font-family: Arial, sans-serif}
+ .number {
+ display: inline-block;
+ -webkit-transition: all 1.5s ease-in-out;
+ -moz-transition: all 1.5s ease-in-out;
+ -o-transition: all 1.5s ease-in-out;
+ transition: all 1.5s ease-in-out;
+ }
+ 
+ #question {
+ display: inline-block;
+ -webkit-transition: all 1.5s ease-in-out;
+ -moz-transition: all 1.5s ease-in-out;
+ -o-transition: all 1.5s ease-in-out;
+ transition: all 1.5s ease-in-out;
+ }
+ 
+ .center {
+ text-align: center;
+ background: teal;
+ color: white;
+ border-radius: 1em;
+ padding: 1em;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ margin-right: -50%;
+ transform: translate(-50%, -50%);
+ line-height:50px;
+ }
+ 
+ .riddle {
+ color: black;
+ font-weight: 1000;
+ }

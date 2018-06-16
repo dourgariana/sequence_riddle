@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script type="text/javascript"> 
+	/*
+		"Sequence Riddle"
+		Written by Anna Dourgarian
+		6.16.2018
+	*/
+		 function start(){
+			document.getElementById("start").disabled=true;
+			setTimeout(step1,0000); // Vertical rotation
+         	setTimeout(step2,1250); // Horizontal rotation
+			setTimeout(function(){step3("hidden");},3000); // Disappear
+         	setTimeout(step4,3000); // Set real numbers
+			setTimeout(function(){step3("visible");},3000); // Reappear
+			setTimeout(step5,3700); // Complete sequence
+			setTimeout(step6,5200); // Vertical rotation
+			setTimeout(step7,6700); // Horizontal rotation
+			setTimeout(step8,8200); // Set original numbers
+			setTimeout(step9,8700); // Highlight answer
+			setTimeout(function() {window.location.reload(false);},11500); // Reload
+				// Reload page because rotation does not reset properly to begin again
+         }
+         
+         function step1() {
+             var numbers = document.querySelectorAll(".number");
+			 
+			 numbers.forEach(function(num){num.style.transform="rotateX(180deg)";});
+		 }
+         
+         function step2(){
+             var numbers = document.querySelectorAll(".number");
+			 
+			 numbers.forEach(function(num){num.style.transform="rotateZ(180deg)";});
+		 }
+         
+         function step3(visStatus){
+             var numbers = document.querySelectorAll(".number");
+			 
+			 numbers.forEach(function(num){num.style.transition="all 0";});
+			 
+			 numbers.forEach(function(num){num.style.visibility=visStatus;});
+			 document.getElementById("question").style.visibility=visStatus;
+         }
+         
+         function step4(){
+             var numbers = document.querySelectorAll(".number");
+			 
+			 numbers.forEach(function(num){num.style.transition="all 0s";});
+			 document.getElementById("question").style.transition="all 0s";
+			 
+			 numbers.forEach(function(num){num.style.transform="none";});
+			 
+			 document.getElementById("first").innerHTML="9l";
+			 document.getElementById("second").innerHTML="90";
+			 document.getElementById("third").innerHTML="89";
+			 document.getElementById("fourth").innerHTML="88";
+			 document.getElementById("question").innerHTML="87";
+			 document.getElementById("sixth").innerHTML="86";
+			 
+			 document.getElementById("question").style.opacity=0;
+         }
+         
+         function step5(){
+			 document.getElementById("question").style.transition="all 1.5s";
+			 
+			 document.getElementById("question").style.opacity=1;
+         }
+         
+         function step6(){
+             var numbers = document.querySelectorAll(".number");
+			 
+			 numbers.forEach(function(num){num.style.transition="all 1.5s";});
+			 
+			 numbers.forEach(function(num){num.style.transform="rotateX(180deg)";});
+			 document.getElementById("question").style.transform="rotateX(180deg)";
+         }
+         
+         function step7(){
+			 var numbers = document.querySelectorAll(".number");
+			 
+			 numbers.forEach(function(num){num.style.transform="rotateZ(180deg)";});
+			 document.getElementById("question").style.transform="rotateZ(180deg)";
+         }
+         
+         function step8(){
+             var numbers = document.querySelectorAll(".number");
+			 
+			 numbers.forEach(function(num){num.style.transition="all 0s";});
+			 document.getElementById("question").style.transition="all 0s";
+			 
+			 numbers.forEach(function(num){num.style.transform="none";});
+			 document.getElementById("question").style.transform="none";
+			 
+			 document.getElementById("first").innerHTML="l6";
+			 document.getElementById("second").innerHTML="06";
+			 document.getElementById("third").innerHTML="68";
+			 document.getElementById("fourth").innerHTML="88";
+			 document.getElementById("question").innerHTML="L8";
+			 document.getElementById("sixth").innerHTML="98";
+         }
+         
+         function step9() {
+			 document.getElementById("question").style.transition="all 1.5s";
+			 
+			 document.getElementById("question").style.color="gold";
+         }
+		 
+      </script>
+      <style>
+         body { font-size: 200%; font-family: Arial, sans-serif}
+         .number {
+         display: inline-block;
+         -webkit-transition: all 1.5s ease-in-out;
+         -moz-transition: all 1.5s ease-in-out;
+         -o-transition: all 1.5s ease-in-out;
+         transition: all 1.5s ease-in-out;
+         }
+		 
+         #question {
+         display: inline-block;
+         -webkit-transition: all 1.5s ease-in-out;
+         -moz-transition: all 1.5s ease-in-out;
+         -o-transition: all 1.5s ease-in-out;
+         transition: all 1.5s ease-in-out;
+         }
+		 
+         .center {
+         text-align: center;
+         background: teal;
+         color: white;
+         border-radius: 1em;
+         padding: 1em;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         margin-right: -50%;
+         transform: translate(-50%, -50%);
+         line-height:50px;
+         }
+		 
+         .riddle {
+         color: black;
+         font-weight: 1000;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="center">
+         <span class="number" id="first">l6</span>
+         <span class="number" id="second">06</span>
+         <span class="number" id="third">68</span>
+         <span class="number" id="fourth">88</span>
+         <span id="question">__</span>
+         <span class="number" id="sixth">98</span>
+         <p class="riddle">
+            What is the missing item?
+         </p>
+         <button id="start" type="button" onclick="start()">Answer</button>
+		 <button id="restart" type="button" onclick="window.location.reload()">Restart</button>
+	  </div>
+   </body>
+</html>
